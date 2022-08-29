@@ -1,7 +1,7 @@
-'use strict'
+"use strict";
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable("users", {
       id: {
         type: Sequelize.UUID,
@@ -25,6 +25,7 @@ module.exports = {
       admin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -34,10 +35,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-    })
+    });
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable("users")
+    await queryInterface.dropTable("users");
   },
-}
+};
